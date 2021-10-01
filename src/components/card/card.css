@@ -1,0 +1,48 @@
+.card {
+    height: 300px;
+    width: 950px;
+    margin: 30px auto;
+    padding: 30px;
+    box-sizing: border-box;
+    box-shadow: 1px 1px 13px 0px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: space-between;
+}
+
+.group-title {
+    margin-bottom: 30px;
+}
+
+.title {
+    font-size: 28px;
+}
+
+.subtitle {
+    font-size: 14px;
+}
+
+.content-group {
+    margin-bottom: 25px;
+}
+
+.label {
+    font-size: 14px;
+    font-weight: 500;
+    color: darkgrey;
+}
+
+.content {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.info {
+    width: 500px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.images {
+    background-color: darkgrey;
+    width: 160px;
+}
