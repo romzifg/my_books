@@ -1,0 +1,12 @@
+.navbar {
+    height: 50px;
+    box-shadow: -1px 16px 13px -11px rgba(0, 0, 0, 0.54);
+    box-sizing: border-box;
+    padding: 15px;
+}
+
+.title {
+    font-size: 18px;
+    align-items: center;
+    text-align: center;
+}
