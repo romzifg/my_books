@@ -1,5 +1,6 @@
 const initialStateHome = {
   dataBook: [],
+  dataCountry: [],
 };
 
 const homeReducer = (state = initialStateHome, action) => {
@@ -20,7 +21,7 @@ const homeReducer = (state = initialStateHome, action) => {
   if (action.type === "GET_DATA_COUNTRY") {
     return {
       ...state,
-      country: action.payload,
+      dataCountry: action.payload,
     };
   }
   return state;

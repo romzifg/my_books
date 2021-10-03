@@ -1,18 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./form.css";
-import { postToAPI } from "../src/config/redux/action";
+import { GetCountry } from "../../config/redux/action";
+import { useDispatch, useSelector } from "react-redux";
 
-const Form = () => {
-  const { country } = useSelector((state) => state.homeReducer);
+const Form = (props) => {
+  const { dataCountry } = useSelector((state) => state.homeReducer);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(postToAPI());
+    dispatch(GetCountry());
   }, [dispatch]);
 
   return (
     <div className="form-container">
       <div className="header">
         <h1 className="add-book">Add Book</h1>
+        <button className="btn" onClick={props.onClick}>
+          X
+        </button>
       </div>
       <div className="form">
         <label className="form-label">Title</label>
@@ -59,11 +64,12 @@ const Form = () => {
           Country Publisher
         </label>
         <select className="create-form" name="country" id="country">
-          {country.map((data) => {
+          {dataCountry.map((data) => {
             return <option value={data.name}>{data.name}</option>;
           })}
         </select>
       </div>
+      <button className="btn-submit">Submit</button>
     </div>
   );
 };

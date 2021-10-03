@@ -7,10 +7,12 @@ import Gap from "./components/gap/gap";
 import Navbar from "./components/navbar/navbar";
 import { useDispatch, useSelector } from "react-redux";
 import { GetData } from "../src/config/redux/action";
+import Modal from "react-modal";
 
 function App() {
   const { dataBook, countData } = useSelector((state) => state.homeReducer);
   const [visible, setVisible] = useState(3);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
   const dispatch = useDispatch();
 
   const showMoreItems = () => {
@@ -29,7 +31,16 @@ function App() {
         <p className="count-book">
           <strong>Books </strong> ({countData})
         </p>
-        <Button title="Add +" />
+        <Button title="Add +" onClick={() => setModalIsOpen(true)} />
+      </div>
+      <div>
+        <Modal
+          isOpen={modalIsOpen}
+          onRequestClose={() => setModalIsOpen(false)}
+          style={{ overlay: { backgroundColor: "grey" } }}
+        >
+          <Form onClick={() => setModalIsOpen(false)} />
+        </Modal>
       </div>
       {dataBook.slice(0, visible).map((data) => {
         return (
