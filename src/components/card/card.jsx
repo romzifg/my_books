@@ -1,38 +1,41 @@
 import React from "react";
 import "./card.css";
 
-const Card = () => {
+const Card = (props) => {
+  const { title, author, isbn, publishedOn, numberOfPages, country, imageUrl } =
+    props;
+
   return (
     <div className="card">
       <div className="card-info">
         <div className="group-title">
-          <h1 className="title">Title</h1>
-          <h2 className="subtitle">Sub Title</h2>
+          <h1 className="title">{title}</h1>
+          <h2 className="subtitle">Book by {author}</h2>
         </div>
         <div className="info">
           <div className="group">
             <div className="content-group">
               <label className="label">ISBN</label>
-              <p className="content">1234567890</p>
+              <p className="content">{isbn}</p>
             </div>
             <div className="content-group">
               <label className="label">Published on</label>
-              <p className="content">January, 10 2022</p>
+              <p className="content">{publishedOn}</p>
             </div>
           </div>
           <div className="group">
             <div className="content-group">
               <label className="label">Number of Page</label>
-              <p className="content">288 pages</p>
+              <p className="content">{numberOfPages} pages</p>
             </div>
             <div className="content-group">
               <label className="label">Country Publisher</label>
-              <p className="content">U.S</p>
+              <p className="content">{country}</p>
             </div>
           </div>
         </div>
       </div>
-      <div className="images">Images</div>
+      <div className="images">{imageUrl}</div>
     </div>
   );
 };

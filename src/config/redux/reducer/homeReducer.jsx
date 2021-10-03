@@ -1,5 +1,5 @@
 const initialStateHome = {
-  dataBlog: [],
+  dataBook: [],
   page: {
     currentPage: 1,
     totalPage: 1,
@@ -10,7 +10,7 @@ const homeReducer = (state = initialStateHome, action) => {
   if (action.type === "GET_DATA_BOOK") {
     return {
       ...state,
-      dataBlog: action.payload,
+      dataBook: action.payload,
     };
   }
 

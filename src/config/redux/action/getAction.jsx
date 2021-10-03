@@ -1,13 +1,15 @@
 import axios from "axios";
-import env from "react-dotenv";
 
 export const GetData = (page) => {
   return (dispatch) => {
     axios
-      .get(`${env.BOOKS_API}?page=${page}&perPage=2`)
+      .get(
+        `https://5de759a9b1ad690014a4e21e.mockapi.io/api/v1/books?page=${page}&perPage=5`
+      )
       .then((result) => {
         const responseApi = result.data;
-        dispatch({ type: "GET_DATA_BOOK", payload: responseApi.data });
+        console.log(responseApi);
+        dispatch({ type: "GET_DATA_BOOK", payload: responseApi });
         dispatch({
           type: "UPDATE_PAGE",
           payload: {
@@ -25,10 +27,10 @@ export const GetData = (page) => {
 export const GetCountry = () => {
   return (dispatch) => {
     axios
-      .get(env.COUNTRY_API)
+      .get("https://5de759a9b1ad690014a4e21e.mockapi.io/api/v1/countries")
       .then((result) => {
         const country = result.data;
-        dispatch({ type: "UPDATE_DATA_COUNTRY", payload: country.data });
+        dispatch({ type: "UPDATE_DATA_COUNTRY", payload: country });
       })
       .catch((err) => {
         console.log(err);

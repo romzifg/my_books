@@ -1,5 +1,4 @@
 import axios from "axios";
-import env from "react-dotenv";
 
 export const setForm = (formType, formValue) => {
   return { type: "SET_FORM_BOOK", formType, formValue };
@@ -15,7 +14,7 @@ export const postToAPI = (form) => {
   data.append("countryPublisher", form.countryPublisher);
 
   axios
-    .post(env.BOOKS_API, data, {
+    .post("https://5de759a9b1ad690014a4e21e.mockapi.io/api/v1/books", data, {
       headers: {
         "content-type": "multipart/form-data",
       },
