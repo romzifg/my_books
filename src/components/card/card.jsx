@@ -35,7 +35,9 @@ const Card = (props) => {
           </div>
         </div>
       </div>
-      <div className="images">{imageUrl}</div>
+      <div>
+        <img className="images" src={imageUrl} alt="image" />
+      </div>
     </div>
   );
 };

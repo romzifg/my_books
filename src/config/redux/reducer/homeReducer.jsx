@@ -14,13 +14,6 @@ const homeReducer = (state = initialStateHome, action) => {
     };
   }
 
-  if (action.type === "UPDATE_PAGE") {
-    return {
-      ...state,
-      page: action.payload,
-    };
-  }
-
   if (action.type === "UPDATE_DATA_COUNTRY") {
     return {
       ...state,

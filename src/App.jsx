@@ -10,26 +10,23 @@ import { GetData } from "../src/config/redux/action";
 import "./App.css";
 
 function App() {
-  const [counter, setCounter] = useState(1);
-  const { dataBook, page } = useSelector((state) => state.homeReducer);
+  const { dataBook } = useSelector((state) => state.homeReducer);
+  const [items, setItems] = useState([]);
+  const [visible, setVisible] = useState(3);
   const dispatch = useDispatch();
 
+  const showMoreItems = () => {
+    setVisible((prevValue) => prevValue + 2);
+  };
+
   useEffect(() => {
-    dispatch(GetData(counter));
-  }, [counter, dispatch]);
-
-  const previous = () => {
-    setCounter(counter <= 1 ? 1 : counter - 1);
-  };
-
-  const next = () => {
-    setCounter(counter === page.totalPage ? page.totalPage : counter + 1);
-  };
+    dispatch(GetData());
+  }, [dispatch]);
 
   return (
     <div className="container">
       <Navbar />
-      {dataBook.map((data) => {
+      {dataBook.slice(0, visible).map((data) => {
         return (
           <Card
             key={data.id}
@@ -44,14 +41,9 @@ function App() {
         );
       })}
       <div className="pagination">
-        <Button title="Previous" onClick={previous} />
-        <Gap width={20} />
-        <p className="text-page">
-          {page.currentPage} / {page.totalPage}
-        </p>
-        <Gap width={25} />
-        <Button title="Next" onClick={next} />
+        <Button title="Load More" onClick={showMoreItems} />
       </div>
+      <Gap height={25} />
     </div>
   );
 }
