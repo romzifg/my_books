@@ -10,8 +10,7 @@ import { GetData } from "../src/config/redux/action";
 import "./App.css";
 
 function App() {
-  const { dataBook } = useSelector((state) => state.homeReducer);
-  const [items, setItems] = useState([]);
+  const { dataBook, countData } = useSelector((state) => state.homeReducer);
   const [visible, setVisible] = useState(3);
   const dispatch = useDispatch();
 
@@ -26,6 +25,13 @@ function App() {
   return (
     <div className="container">
       <Navbar />
+      <Gap height={25} />
+      <div className="header-menu">
+        <p className="count-book">
+          <strong>Books </strong> ({countData})
+        </p>
+        <Button title="Add +" />
+      </div>
       {dataBook.slice(0, visible).map((data) => {
         return (
           <Card

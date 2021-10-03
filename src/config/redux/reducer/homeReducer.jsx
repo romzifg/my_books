@@ -1,9 +1,5 @@
 const initialStateHome = {
   dataBook: [],
-  page: {
-    currentPage: 1,
-    totalPage: 1,
-  },
 };
 
 const homeReducer = (state = initialStateHome, action) => {
@@ -11,6 +7,13 @@ const homeReducer = (state = initialStateHome, action) => {
     return {
       ...state,
       dataBook: action.payload,
+    };
+  }
+
+  if (action.type === "COUNT_DATA_BOOK") {
+    return {
+      ...state,
+      countData: action.payload,
     };
   }
 

@@ -6,10 +6,23 @@
     font-family: 'Montserrat';
 }
 
+.header-menu {
+    display: flex;
+    justify-content: space-between;
+    width: 950px;
+    margin: 0 auto;
+}
+
+.count-book {
+    display: flex;
+    align-items: center;
+}
+
 .pagination {
     width: 400px;
     display: flex;
     margin: auto;
+    justify-content: center;
 }
 
 .text-page {

@@ -8,6 +8,7 @@ export const GetData = (page) => {
         const responseApi = result.data;
         console.log(responseApi);
         dispatch({ type: "GET_DATA_BOOK", payload: responseApi });
+        dispatch({ type: "COUNT_DATA_BOOK", payload: responseApi.length });
       })
       .catch((err) => {
         console.log(err);
