@@ -1,9 +1,5 @@
 import axios from "axios";
 
-export const setForm = (formType, formValue) => {
-  return { type: "SET_FORM_BOOK", formType, formValue };
-};
-
 export const postToAPI = (form) => {
   const data = new FormData();
   data.append("title", form.title);

@@ -17,7 +17,7 @@ const homeReducer = (state = initialStateHome, action) => {
     };
   }
 
-  if (action.type === "UPDATE_DATA_COUNTRY") {
+  if (action.type === "GET_DATA_COUNTRY") {
     return {
       ...state,
       country: action.payload,

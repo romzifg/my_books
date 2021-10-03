@@ -1,13 +1,12 @@
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import Card from "./components/card/card";
-// import Form from "./components/form/form";
+import Form from "./components/form/form";
 import Button from "./components/button/button";
 import Gap from "./components/gap/gap";
 import Navbar from "./components/navbar/navbar";
-import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { GetData } from "../src/config/redux/action";
-import "./App.css";
 
 function App() {
   const { dataBook, countData } = useSelector((state) => state.homeReducer);

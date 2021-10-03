@@ -22,7 +22,7 @@ export const GetCountry = () => {
       .get("https://5de759a9b1ad690014a4e21e.mockapi.io/api/v1/countries")
       .then((result) => {
         const country = result.data;
-        dispatch({ type: "UPDATE_DATA_COUNTRY", payload: country });
+        dispatch({ type: "GET_DATA_COUNTRY", payload: country });
       })
       .catch((err) => {
         console.log(err);

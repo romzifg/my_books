@@ -1,7 +1,14 @@
 import React from "react";
 import "./form.css";
+import { postToAPI } from "../src/config/redux/action";
 
 const Form = () => {
+  const { country } = useSelector((state) => state.homeReducer);
+
+  useEffect(() => {
+    dispatch(postToAPI());
+  }, [dispatch]);
+
   return (
     <div className="form-container">
       <div className="header">
@@ -52,10 +59,9 @@ const Form = () => {
           Country Publisher
         </label>
         <select className="create-form" name="country" id="country">
-          <option value="U.S">U.S</option>
-          <option value="Indonesia">Indonesia</option>
-          <option value="Malaysia">Malaysia</option>
-          <option value="Singapore">Singapore</option>
+          {country.map((data) => {
+            return <option value={data.name}>{data.name}</option>;
+          })}
         </select>
       </div>
     </div>
